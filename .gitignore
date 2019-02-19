@@ -1,3 +1,12 @@
 /.metadata/
 
 *.class
+/e3-common/target/
+/e3-manager-web/target/
+/e3-manager/e3-manager-dao/target/
+/e3-manager/e3-manager-interface/target/
+/e3-manager/e3-manager-pojo/target/
+/e3-manager/e3-manager-service/target/
+/fastdfs_client/target/
+/pagehelper/target/
+
