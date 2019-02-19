@@ -90,4 +90,16 @@ public class ItemServiceImp implements ItemService {
 		return E3Result.ok();
 	}
 
+	@Override
+	public E3Result updateItem(TbItem tbItem, String desc) {
+		tbItem.setCreated(new Date());
+		tbItem.setUpdated(new Date());
+		tbItem.setStatus((byte) 1);
+		tbItemMapper.updateByPrimaryKey(tbItem);
+		TbItemDesc tbItemDesc = tbItemDescMapper.selectByPrimaryKey(tbItem.getId());
+		tbItemDesc.setItemDesc(desc);
+		tbItemDescMapper.updateByPrimaryKey(tbItemDesc);
+		return E3Result.ok();
+	}
+
 }

@@ -69,10 +69,17 @@ public class TbItemController {
 		return deleteResult;
 	}
 	
-	
-	
-	
-	
-
+	/**
+	 * 保存TbItem的修改
+	 * @param tbItem
+	 * @param desc
+	 * @return
+	 */
+	@RequestMapping("/rest/item/update")
+	@ResponseBody
+	public E3Result updateItem(TbItem tbItem,String desc) {
+		E3Result updateResult = itemService.updateItem(tbItem, desc);
+		return updateResult;
+	}
 	
 }

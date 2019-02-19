@@ -18,4 +18,6 @@ public interface ItemService {
 	TbItemDesc selectDesc(long id);
 	//删除TbItem
 	E3Result deleteItem(String ids);
+	//TbItem Update
+	E3Result updateItem(TbItem tbItem,String desc);
 }

@@ -24,8 +24,8 @@
 	<!-- 声明需要暴露的服务接口 -->
 	<!-- 此时将service接口暴露，需要的实现类itemServiceImpl为ItemServiceImp中的@Service实现类 -->
 	<!-- timeout:连接超时时间，单位为毫秒 -->
-	<dubbo:service interface="cn.e3.service.ItemService" ref="itemServiceImp" />
-	<dubbo:service interface="cn.e3.service.ItemCatService" ref="itemCatServiceImpl" />
+	<dubbo:service interface="cn.e3.service.ItemService" ref="itemServiceImp" timeout="600000"/>
+	<dubbo:service interface="cn.e3.service.ItemCatService" ref="itemCatServiceImpl" timeout="600000"/>
 	
 	<context:annotation-config/>
 	
