@@ -27,4 +27,5 @@ public interface TbContentCategoryMapper {
     int updateByPrimaryKeySelective(TbContentCategory record);
 
     int updateByPrimaryKey(TbContentCategory record);
+    List<TbContentCategory> selectByParentId(Long parent_id);
 }

@@ -24,7 +24,7 @@ import util.FastDFSClient;
 public class fastDfsTest {
 	@Test
 	public void fSDTest() throws IOException, MyException {
-		//1、创建配置文件，配置文件的内容为tracker服务器的ip地址
+/*		//1、创建配置文件，配置文件的内容为tracker服务器的ip地址
 		ClientGlobal.init("G:\\Java\\MyProjects\\e3-manager-web\\src\\main\\resources\\config\\client.conf");
 		//2、创建一个TrackerClient对象，直接new一个
 		TrackerClient trackerClient = new TrackerClient();
@@ -40,14 +40,14 @@ public class fastDfsTest {
 		//7、返回数组。包含组名和图片的路径。
 		for (String string : strings) {
 			System.out.println(string);
-		}
+		}*/
 	}
 	
 	@Test
 	public void fsdUpload() throws Exception {
-		FastDFSClient fastDfsClient = new FastDFSClient("G:\\Java\\MyProjects\\e3-manager-web\\src\\main\\resources\\config\\client.conf");
+/*		FastDFSClient fastDfsClient = new FastDFSClient("G:\\Java\\MyProjects\\e3-manager-web\\src\\main\\resources\\config\\client.conf");
 		String fileName = fastDfsClient.uploadFile("H:\\temp\\0236.jpg", "jpg");
-		System.out.println(fileName);
+		System.out.println(fileName);*/
 	}
 	
 

@@ -9,7 +9,7 @@
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 		
-	<context:component-scan base-package="cn.e3.controller"/>
+	<context:component-scan base-package="cn.e3.*"/>
 	<!--  可以直接使用注解驱动来配置处理映射器和处理器适配器-->
 	<mvc:annotation-driven />
 	<!-- 指定spring读取db.properties配置 -->
@@ -44,6 +44,7 @@
 	<!-- 创建接口的代理对象 -->
 	<dubbo:reference interface="cn.e3.service.ItemService" id="itemService" />
 	<dubbo:reference interface="cn.e3.service.ItemCatService" id="itemCatService" />
+	<dubbo:reference interface="cn.e3.content.service.ContentService" id="contentService" />
     
         
         

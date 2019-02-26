@@ -7,6 +7,12 @@
 /e3-manager/e3-manager-interface/target/
 /e3-manager/e3-manager-pojo/target/
 /e3-manager/e3-manager-service/target/
+/e3-content/e3-content-service/target/
+/e3-content/e3-content-interface/target/
+/e3-portal-web/target/
+
 /fastdfs_client/target/
 /pagehelper/target/
+
+/.recommenders/
 
