@@ -25,6 +25,7 @@
 	<!-- 此时将service接口暴露，需要的实现类itemServiceImpl为ItemServiceImp中的@Service实现类 -->
 	<!-- timeout:连接超时时间，单位为毫秒 -->
  	<dubbo:service interface="cn.e3.content.service.ContentService" ref="contentServiceImpl" timeout="600000"/>
+ 	<dubbo:service interface="cn.e3.content.service.ContentGategoryService" ref="contentGategoryServiceImpl" timeout="600000"/>
 	 
 	
 	
