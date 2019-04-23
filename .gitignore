@@ -10,9 +10,17 @@
 /e3-content/e3-content-service/target/
 /e3-content/e3-content-interface/target/
 /e3-portal-web/target/
-
+/e3-search/e3-search-Service/target/
+/e3-search/e3-search-interface/target/
+/e3-search-web/target/
+.settings
 /fastdfs_client/target/
 /pagehelper/target/
 
-/.recommenders/
+.recommenders
+/target/
+.settings
+.project
+.classpath
+/log/
 

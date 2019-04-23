@@ -12,7 +12,7 @@ import cn.e3.service.ItemService;
 import cn.e3mall.EasyUi.EasyUiReslut;
 import cn.e3mall.pojo.TbItem;
 @Controller
-public class pageControl {
+public class PageControl {
 	
 	@Autowired
 	private ItemService itemservice;

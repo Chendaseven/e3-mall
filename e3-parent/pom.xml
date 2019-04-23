@@ -73,6 +73,11 @@
 				<artifactId>httpclient</artifactId>
 				<version>${httpclient.version}</version>
 			</dependency>
+			<dependency>
+			   <groupId>org.apache.httpcomponents</groupId>
+			   <artifactId>httpmime</artifactId>
+			   <version>${httpclient.version}</version>
+			</dependency>
 			<!-- quartz任务调度框架 -->
 			<dependency>
 				<groupId>org.quartz-scheduler</groupId>

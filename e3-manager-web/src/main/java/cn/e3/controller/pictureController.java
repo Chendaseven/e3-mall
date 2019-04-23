@@ -21,7 +21,7 @@ import util.FastDFSClient;
  */
 
 @Controller
-public class pictureController {
+public class PictureController {
 	
 	@Value("${IMAGE_SERVER_URL}")
 	private String IMAGE_SERVER_URL;

@@ -10,7 +10,7 @@ import cn.e3.service.ItemService;
 import cn.e3mall.pojo.TbItem;
 
 @Controller
-public class findItem {
+public class FindItem {
 	@Autowired
 	private ItemService itemservice;
 	

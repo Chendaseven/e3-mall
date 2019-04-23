@@ -17,7 +17,7 @@ import cn.e3mall.EasyUi.EasyUiTreeNode;
  * 使用@RequestParam，使前端的变量id赋值给parentId
  */
 @Controller
-public class getCatList {
+public class GetCatList {
 	@Autowired
 	private ItemCatService itemCatService;
 	

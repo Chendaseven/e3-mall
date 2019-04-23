@@ -7,8 +7,11 @@
 		$.post("/index/item/import",null,function(data){
 			if(data.status == 200){
 				$.messager.alert('提示','导入索引库成功！');
-			} else {
-				$.messager.alert('提示','导入索引库失败！');
+			} else if(data.status==100){
+				$.messager.aleert(data.msg);
+				/* $.messager.alert('提示','导入索引库失败！'); */
+			}else{
+				$.messager.aleert(data.msg);
 			}
 		});
 	}

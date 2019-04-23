@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- namespace需要写到具体的Mapper文件路径 -->
+<mapper namespace="cn.e3.search.Dao.SearchMapper">
+<!-- id是具体方法名 -->
+<select id="searchList" resultType="cn.e3.search.pojo.SearchPojo">
+	SELECT 
+	ti.id,
+	ti.title,
+	ti.sell_point,
+	ti.price,ti.image,
+	tic.`name` catagoryName
+	FROM tb_item ti 
+	LEFT JOIN tb_item_cat tic 
+	on ti.cid = tic.id
+	WHERE ti.`status`=1
+</select>
+</mapper>
