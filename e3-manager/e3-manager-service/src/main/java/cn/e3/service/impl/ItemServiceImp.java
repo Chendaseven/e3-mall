@@ -3,7 +3,16 @@ package cn.e3.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
 import com.github.pagehelper.PageHelper;
@@ -29,6 +38,10 @@ public class ItemServiceImp implements ItemService {
 	private TbItemMapper tbItemMapper;
 	@Autowired
 	private TbItemDescMapper tbItemDescMapper;
+	@Autowired
+	private JmsTemplate jmsTemplate;
+	@Resource
+	private Destination topicDestination;
 	
 	@Override
 	public TbItem findById(Long id) {
@@ -55,7 +68,8 @@ public class ItemServiceImp implements ItemService {
 	@Override
 	public E3Result addItem(TbItem tbItem, String desc) {
 		//生成随机的商品id,商品信息TbItem中只有商品id、时间信息、商品状态没有，只能手动添加，其他信息由前端from表单提供
-		long ItemId = IDUtils.genItemId();
+		//作为activeMQ发布的消息必须为final
+		final long ItemId = IDUtils.genItemId();
 		tbItem.setId(ItemId);
 		tbItem.setCreated(new Date());
 		tbItem.setUpdated(new Date());
@@ -70,6 +84,18 @@ public class ItemServiceImp implements ItemService {
 		tbItemDesc.setUpdated(new Date());
 		//向表中插入数据
 		tbItemDescMapper.insert(tbItemDesc);
+		//当商品新增完成之后发送一个商品添加消息
+		jmsTemplate.send(topicDestination, new MessageCreator() {
+			
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				// 将商品id作为消息发布出去
+				TextMessage textMessage = session.createTextMessage(ItemId + "");
+				return textMessage;
+			}
+		});
+		
+		
 		return E3Result.ok();
 	}
 	

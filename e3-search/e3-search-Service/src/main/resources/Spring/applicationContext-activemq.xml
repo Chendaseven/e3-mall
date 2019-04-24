@@ -35,7 +35,7 @@
 	</bean>
 	<!--这个是主题目的地，一对多的 -->
 	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
-		<constructor-arg value="topic" />
+		<constructor-arg value="itemAdd-topic" />
 	</bean>
 	
 	<!-- 接收消息 -->
@@ -47,6 +47,16 @@
 		<property name="destination" ref="queueDestination" />
 		<property name="messageListener" ref="myMessageListener" />
 	</bean>
+	
+	<!-- 配置添加商品到solr监听器 -->
+	<bean id="itemAddListener" class="e3.search.Listener.MyMessageListener" />
+	<!-- 消息监听容器 -->
+	<bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="topicDestination" />
+		<property name="messageListener" ref="itemAddListener" />
+	</bean>
+	
 	
 
 

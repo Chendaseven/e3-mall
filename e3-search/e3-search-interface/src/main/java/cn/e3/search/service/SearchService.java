@@ -4,4 +4,5 @@ import util.E3Result;
 
 public interface SearchService {
 	E3Result inputAllDate();
+	E3Result inputSingleDate(long itemId);
 }

@@ -15,4 +15,22 @@
 	on ti.cid = tic.id
 	WHERE ti.`status`=1
 </select>
+
+<select id="getItemById" resultType="cn.e3.search.pojo.SearchPojo" parameterType="Long">
+	SELECT 
+		ti.id,
+		ti.title,
+		ti.sell_point,
+		ti.price,ti.image,
+		tic.`name` catagoryName
+	FROM 
+		tb_item ti 
+	LEFT JOIN 
+		tb_item_cat tic 
+	on ti.cid = tic.id
+	WHERE ti.`status`=1
+	and ti.id=#{itemId}
+
+
+</select>
 </mapper>

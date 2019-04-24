@@ -17,10 +17,10 @@
 /fastdfs_client/target/
 /pagehelper/target/
 
-.recommenders
+.recommenders/*
 /target/
 .settings
 .project
 .classpath
-/log/
+*.log
 

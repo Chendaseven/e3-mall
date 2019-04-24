@@ -58,4 +58,34 @@ public class SearchServiceImpl implements cn.e3.search.service.SearchService {
 		
 	}
 
+	
+	@Override
+	public E3Result inputSingleDate(long itemId) {
+		//sleep，等待添加商品成功
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		//根据商品id查找商品信息
+		SearchPojo item = searchMapper.getItemById(itemId);
+		//将商品添加到solr索引库
+		try {
+			SolrInputDocument solrInputDocument = new SolrInputDocument();
+			solrInputDocument.addField("id", item.getId());
+			solrInputDocument.addField("item_title", item.getTitle());
+			solrInputDocument.addField("item_sell_point", item.getSell_point());
+			solrInputDocument.addField("item_price", item.getPrice());
+			solrInputDocument.addField("item_image", item.getImage());
+			solrInputDocument.addField("item_category_name", item.getCatagoryName());
+			solrServer.add(solrInputDocument);
+			solrServer.commit();
+		} catch (SolrServerException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return E3Result.ok();
+	}
+
 }

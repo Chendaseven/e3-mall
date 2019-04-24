@@ -107,6 +107,11 @@
 			   <scope>system</scope>
 			   <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/noggit-0.5.jar</systemPath>
 		</dependency>
+		<!-- activemq -->
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-all</artifactId>
+		</dependency>
 	
 	</dependencies>
 	

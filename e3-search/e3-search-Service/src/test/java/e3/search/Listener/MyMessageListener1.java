@@ -5,7 +5,7 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
-public class MyMessageListener implements MessageListener{
+public class MyMessageListener1 implements MessageListener{
 
 	@Override
 	public void onMessage(Message message) {
