@@ -30,7 +30,7 @@
 <!-- Mapper代理的方式开发方式二，扫描包方式配置代理 -->
 <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 	<!-- 配置Mapper接口  -->
-	<property name="basePackage" value="cn.e3.search.Dao" />
+	<property name="basePackage" value="cn.e3.search.Dao,cn.e3mall.mapper" />
 </bean>
 
 

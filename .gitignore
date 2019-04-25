@@ -13,6 +13,7 @@
 /e3-search/e3-search-Service/target/
 /e3-search/e3-search-interface/target/
 /e3-search-web/target/
+/e3-item-web/target/
 .settings
 /fastdfs_client/target/
 /pagehelper/target/
@@ -24,3 +25,4 @@
 .classpath
 *.log
 
+/.recommenders/
