@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+<!-- 指定spring读取db.properties配置 -->
+<context:property-placeholder location="classpath:*.properties"  />
+
+<!-- 1.将连接池放入spring容器 -->
+<bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource" >
+	<property name="url" value="${jdbc.jdbcUrl}"/>
+	<property name="driverClassName" value="${jdbc.driverClass}"/>
+	<property name="username" value="${jdbc.user}"/>
+	<property name="password" value="${jdbc.password}"/>
+</bean>
+
+<!-- 配置sqlSessionFactory 相当于由Spring创建一个sqlSessionFactory-->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<!-- 配置mybatis核心配置文件 -->
+	<property name="configLocation" value="classpath:Mybatis/sqlMapConfig.xml"/>
+	<!-- 配置数据源 -->
+	<property name="dataSource" ref="dataSource"/>
+</bean>
+
+<!-- Mapper代理的方式开发方式二，扫描包方式配置代理 -->
+<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	<!-- 配置Mapper接口  -->
+	<property name="basePackage" value="cn.e3mall.mapper" />
+</bean>
+
+
+</beans>

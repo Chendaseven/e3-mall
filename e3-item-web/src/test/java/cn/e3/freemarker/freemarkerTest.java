@@ -103,4 +103,9 @@ public class freemarkerTest {
 		out.close();
 	}
 	
+	@Test
+	public void test12() {
+		System.out.println(new Date());
+	}
+	
 }

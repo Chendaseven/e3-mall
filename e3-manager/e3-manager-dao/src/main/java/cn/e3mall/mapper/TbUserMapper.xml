@@ -240,4 +240,10 @@
       updated = #{updated,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+  <select id="findUserByAccountAndPwd" resultType="cn.e3mall.pojo.TbUser">
+  		select * from tb_user where username=#{userAccount} and password=#{pwd}
+  
+  </select>
+  
 </mapper>

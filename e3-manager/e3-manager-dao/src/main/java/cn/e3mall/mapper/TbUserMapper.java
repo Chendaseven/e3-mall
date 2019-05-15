@@ -27,4 +27,6 @@ public interface TbUserMapper {
     int updateByPrimaryKeySelective(TbUser record);
 
     int updateByPrimaryKey(TbUser record);
+    
+    TbUser findUserByAccountAndPwd(@Param("userAccount") String userAccount,@Param("pwd") String pwd);
 }
