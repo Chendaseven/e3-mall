@@ -60,4 +60,10 @@ public class JedisClientCluster implements JedisClient {
 		return jedisCluster.hdel(key, field);
 	}
 
+	@Override
+	public String delete(String key) {
+		jedisCluster.del(key);
+		return null;
+	}
+
 }

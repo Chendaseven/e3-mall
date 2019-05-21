@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -95,6 +96,23 @@ public class SsoUserServiceImpl implements SsoUserService{
 			return E3Result.build(300, "用户名或密码错误");
 		}
 
+	}
+
+	/**
+	 * 用户退出登陆方法
+	 */
+	
+	@Override
+	public E3Result logout(String token) {
+		//将redis中token删除
+		if(StringUtils.isNoneBlank(token)) {
+			jedisClient.delete("SESSION:"+token);
+		}else {
+			//如果redis中没有用户信息，说明已经过期
+			return E3Result.ok();
+		}
+		return E3Result.ok();
+		
 	}
 
 

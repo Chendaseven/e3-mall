@@ -8,4 +8,5 @@ public interface SsoUserService {
 	E3Result checkData(String param,int type);
 	E3Result registerData(TbUser tbUser);
 	E3Result login(String userAccount,String password);
+	E3Result logout(String token);
 }

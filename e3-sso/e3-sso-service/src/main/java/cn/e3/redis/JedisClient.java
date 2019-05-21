@@ -5,6 +5,8 @@ public interface JedisClient {
 	String set(String key, String value);
 	//String型取值
 	String get(String key);
+	//阐述key值
+	String delete(String key);
 	//判断是否存在此key
 	Boolean exists(String key);
 	//设置key值过期时间，设置成功返回1，当 key 不存在或者不能为 key 设置过期时间时返回0
