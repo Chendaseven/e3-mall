@@ -34,8 +34,8 @@
 	<dubbo:application name="e3-cart-web"/>
 	<dubbo:registry protocol="zookeeper" address="192.168.25.128:2181"/>	  
 <!-- 	创建接口的代理对象 -->
- 	<dubbo:reference interface="cn.e3.service.ItemService" id="itemService" />
-
+ 	<dubbo:reference interface="cn.e3.cart.service.CartService" id="cartService" />
+	<dubbo:reference interface="cn.e3.service.ItemService" id="itemService" />
     <!--配置全局异常处理器  -->
 <!--      <bean class="cn.e3.GlobalException.GlobalExceptionReslover"></bean> -->
      

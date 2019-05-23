@@ -1,5 +1,7 @@
 package cn.e3.redis;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import redis.clients.jedis.JedisCluster;
@@ -64,6 +66,12 @@ public class JedisClientCluster implements JedisClient {
 	public String delete(String key) {
 		jedisCluster.del(key);
 		return null;
+	}
+
+	@Override
+	public List<String> hvals(String key) {
+		List<String> hvals = jedisCluster.hvals(key);
+		return hvals;
 	}
 
 }

@@ -1,5 +1,7 @@
 package cn.e3.redis;
 
+import java.util.List;
+
 public interface JedisClient {
 	//String型设置key值
 	String set(String key, String value);
@@ -21,4 +23,6 @@ public interface JedisClient {
 	String hget(String key, String field);
 	//删除hash表一个或多个指定key值域
 	Long hdel(String key, String... field);
+	//取所有key值下的value集合
+	List<String> hvals(String key);
 }

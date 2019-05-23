@@ -10,7 +10,7 @@
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 	
-	<context:component-scan base-package="cn.e3.redis"></context:component-scan>
+<!-- 	<context:component-scan base-package="cn.e3.redis"></context:component-scan> -->
 	<!-- 单机版Redis的配置 -->
 <!-- 	<bean id="jedisClientPool" class="cn.e3.redis.JedisClientPool"></bean>
 	

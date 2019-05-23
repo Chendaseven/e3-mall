@@ -1,5 +1,7 @@
 package cn.e3.redis;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import redis.clients.jedis.Jedis;
@@ -93,6 +95,12 @@ public class JedisClientPool implements JedisClient {
 		Jedis jedis = jedisPool.getResource();
 		Long del = jedis.del(key);
 		return del.toString();
+	}
+
+	@Override
+	public List<String> hvals(String key) {
+		Jedis jedis = jedisPool.getResource();
+		return jedis.hvals(key);
 	}
 
 }
